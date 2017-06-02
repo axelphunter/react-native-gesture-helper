@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/axelphunter/react-native-gesture-helper.svg?branch=master)](https://travis-ci.org/axelphunter/react-native-gesture-helper)
+
+[![Coverage Status](https://coveralls.io/repos/github/axelphunter/react-native-gesture-helper/badge.svg?branch=master)](https://coveralls.io/github/axelphunter/react-native-gesture-helper?branch=master)
+
 React Native Gesture Helper
 =========
 
