@@ -1,0 +1,24 @@
+{
+  "name": "react-native-gesture-helper",
+  "version": "1.0.0",
+  "description": "A gesture helper for React Native",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/axelphunter/react-native-gesture-helper.git"
+  },
+  "author": "Axel Hunter <axel@axelhunter.net> (https://github.com/axelphunter)",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-eslint": "^5.0.0-beta8",
+    "chai": "^4.0.1",
+    "eslint": "1.10.3",
+    "eslint-config-airbnb": "4.0.0",
+    "eslint-plugin-react": "3.16.1",
+    "jest-cli": "0.2.1",
+    "mocha": "^3.4.2"
+  }
+}
