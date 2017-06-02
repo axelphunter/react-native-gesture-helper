@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for react-native-gesture-helper/index.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">react-native-gesture-helper/</a> index.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">29.17% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>7/24</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/14</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/5</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">30.43% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>7/23</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+const swipeDirections = {
+	SWIPE_UP: 'SWIPE_UP',
+	SWIPE_DOWN: 'SWIPE_DOWN',
+	SWIPE_LEFT: 'SWIPE_LEFT',
+	SWIPE_RIGHT: 'SWIPE_RIGHT',
+    CLICK: 'CLICK'
+};
+&nbsp;
+const swipeConfig = {
+	velocityThreshold: 0.3,
+	directionalOffsetThreshold: 80
+};
+&nbsp;
+<span class="fstat-no" title="function not covered" >function _isValidSwipe(velocity, velocityThreshold, directionalOffset, directionalOffsetThreshold) {</span>
+<span class="cstat-no" title="statement not covered" >	return Math.abs(velocity) &gt; velocityThreshold &amp;&amp; Math.abs(directionalOffset) &lt; directionalOffsetThreshold;</span>
+}
+&nbsp;
+<span class="fstat-no" title="function not covered" >function _gestureIsClick(gestureState) {</span>
+<span class="cstat-no" title="statement not covered" >	return Math.abs(gestureState.dx) &lt; 5  &amp;&amp; Math.abs(gestureState.dy) &lt; 5;</span>
+}
+&nbsp;
+<span class="fstat-no" title="function not covered" >function _isValidHorizontalSwipe(gestureState) {</span>
+<span class="cstat-no" title="statement not covered" >	const {vx, dy} = gestureState;</span>
+<span class="cstat-no" title="statement not covered" >	const {velocityThreshold, directionalOffsetThreshold} = swipeConfig;</span>
+<span class="cstat-no" title="statement not covered" >	return _isValidSwipe(vx, velocityThreshold, dy, directionalOffsetThreshold);</span>
+}
+&nbsp;
+<span class="fstat-no" title="function not covered" >function _isValidVerticalSwipe(gestureState) {</span>
+<span class="cstat-no" title="statement not covered" >	const {vy, dx} = gestureState;</span>
+<span class="cstat-no" title="statement not covered" >	const {velocityThreshold, directionalOffsetThreshold} = swipeConfig;</span>
+<span class="cstat-no" title="statement not covered" >	return _isValidSwipe(vy, velocityThreshold, dx, directionalOffsetThreshold);</span>
+}
+&nbsp;
+module.exports = <span class="fstat-no" title="function not covered" >function(gestureState) {</span>
+<span class="cstat-no" title="statement not covered" >	const {SWIPE_LEFT, SWIPE_RIGHT, SWIPE_UP, SWIPE_DOWN, CLICK} = swipeDirections;</span>
+<span class="cstat-no" title="statement not covered" >    if(_gestureIsClick(gestureState)) <span class="cstat-no" title="statement not covered" >return CLICK;</span></span>
+<span class="cstat-no" title="statement not covered" >	const {dx, dy} = gestureState;</span>
+<span class="cstat-no" title="statement not covered" >	if (_isValidHorizontalSwipe(gestureState)) {</span>
+<span class="cstat-no" title="statement not covered" >		return (dx &gt; 0)</span>
+        ? SWIPE_RIGHT
+        : SWIPE_LEFT;
+	} else <span class="cstat-no" title="statement not covered" >if (_isValidVerticalSwipe(gestureState)) {</span>
+<span class="cstat-no" title="statement not covered" >		return (dy &gt; 0)</span>
+        ? SWIPE_DOWN
+        : SWIPE_UP;
+	}
+<span class="cstat-no" title="statement not covered" >	return null;</span>
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Jun 02 2017 19:59:21 GMT+0100 (BST)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
