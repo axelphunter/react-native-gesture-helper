@@ -39,7 +39,7 @@ Based on the input the response returned fro the gesture should be one of the fo
 * SWIPE_DOWN
 * SWIPE_LEFT
 * SWIPE_RIGHT
-* CLICK
+* TAP
 
 ## Tests
 
