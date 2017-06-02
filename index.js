@@ -9,12 +9,11 @@ const swipeDirections = {
 };
 
 const swipeConfig = {
-	velocityThreshold: 0.3,
 	directionalOffsetThreshold: 80
 };
 
-function _isValidSwipe(velocity, velocityThreshold, directionalOffset, directionalOffsetThreshold) {
-	return Math.abs(velocity) > velocityThreshold && Math.abs(directionalOffset) < directionalOffsetThreshold;
+function _isValidSwipe(velocity, directionalOffset, directionalOffsetThreshold) {
+	return Math.abs(velocity) > 0 && Math.abs(directionalOffset) < directionalOffsetThreshold;
 }
 
 function _gestureIsClick(gestureState) {
@@ -23,14 +22,14 @@ function _gestureIsClick(gestureState) {
 
 function _isValidHorizontalSwipe(gestureState) {
 	const {vx, dy} = gestureState;
-	const {velocityThreshold, directionalOffsetThreshold} = swipeConfig;
-	return _isValidSwipe(vx, velocityThreshold, dy, directionalOffsetThreshold);
+	const {directionalOffsetThreshold} = swipeConfig;
+	return _isValidSwipe(vx, dy, directionalOffsetThreshold);
 }
 
 function _isValidVerticalSwipe(gestureState) {
 	const {vy, dx} = gestureState;
-	const {velocityThreshold, directionalOffsetThreshold} = swipeConfig;
-	return _isValidSwipe(vy, velocityThreshold, dx, directionalOffsetThreshold);
+	const {directionalOffsetThreshold} = swipeConfig;
+	return _isValidSwipe(vy, dx, directionalOffsetThreshold);
 }
 
 module.exports = function(gestureState) {
