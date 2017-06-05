@@ -5,16 +5,10 @@ const swipeDirections = {
 	SWIPE_DOWN: 'SWIPE_DOWN',
 	SWIPE_LEFT: 'SWIPE_LEFT',
 	SWIPE_RIGHT: 'SWIPE_RIGHT',
-    TAP: 'TAP',
-    PINCH: 'PINCH',
-    ZOOM: 'ZOOM'
+    TAP: 'TAP'
 };
 
-const swipeConfig = {
-	directionalOffsetThreshold: 80
-};
-
-function _isValidSwipe(velocity, directionalOffset, directionalOffsetThreshold) {
+function _isValidSwipe(velocity, velocityThreshold, directionalOffset, directionalOffsetThreshold) {
 	return Math.abs(velocity) > 0 && Math.abs(directionalOffset) < directionalOffsetThreshold;
 }
 
@@ -22,37 +16,25 @@ function _gestureIsTap(gestureState) {
 	return Math.abs(gestureState.dx) < 5  && Math.abs(gestureState.dy) < 5;
 }
 
-function _gestureIsPinch(gestureState) {
-
-}
-
-function _gestureIsZoom(gestureState) {
-
-}
-
-function _isValidHorizontalSwipe(gestureState) {
+function _isValidHorizontalSwipe(gestureState, velocityThreshold, directionalOffsetThreshold) {
 	const {vx, dy} = gestureState;
-	const {directionalOffsetThreshold} = swipeConfig;
-	return _isValidSwipe(vx, dy, directionalOffsetThreshold);
+	return _isValidSwipe(vx, velocityThreshold, dy, directionalOffsetThreshold);
 }
 
-function _isValidVerticalSwipe(gestureState) {
+function _isValidVerticalSwipe(gestureState, velocityThreshold, directionalOffsetThreshold) {
 	const {vy, dx} = gestureState;
-	const {directionalOffsetThreshold} = swipeConfig;
-	return _isValidSwipe(vy, dx, directionalOffsetThreshold);
+	return _isValidSwipe(vy, velocityThreshold, dx, directionalOffsetThreshold);
 }
 
-module.exports = function(gestureState) {
-	const {SWIPE_LEFT, SWIPE_RIGHT, SWIPE_UP, SWIPE_DOWN, TAP, PINCH, ZOOM} = swipeDirections;
-    if(_gestureIsClick(gestureState)) return TAP;
-    if(_gestureIsPinch(gestureState)) return PINCH;
-    if(_gestureIsZoom(gestureState)) return ZOOM;
+module.exports = function(gestureState, velocityThreshold = 0.2, directionalOffsetThreshold = 80) {
+	const {SWIPE_LEFT, SWIPE_RIGHT, SWIPE_UP, SWIPE_DOWN, TAP} = swipeDirections;
+    if(_gestureIsTap(gestureState)) return TAP;
 	const {dx, dy} = gestureState;
-	if (_isValidHorizontalSwipe(gestureState)) {
+	if (_isValidHorizontalSwipe(gestureState, velocityThreshold, directionalOffsetThreshold)) {
 		return (dx > 0)
         ? SWIPE_RIGHT
         : SWIPE_LEFT;
-	} else if (_isValidVerticalSwipe(gestureState)) {
+	} else if (_isValidVerticalSwipe(gestureState, velocityThreshold, directionalOffsetThreshold)) {
 		return (dy > 0)
         ? SWIPE_DOWN
         : SWIPE_UP;

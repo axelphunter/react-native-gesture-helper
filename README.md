@@ -5,7 +5,7 @@
 React Native Gesture Helper
 =========
 
-A small library that adds returns gesture type when gestureState is passed from the React Native pan responder.
+A small library that adds returns gesture type when gestureState, the velocity threshold and the directional offset threshold is passed from the React Native pan responder.
 
 ## Installation
 

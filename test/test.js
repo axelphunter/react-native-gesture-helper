@@ -20,8 +20,8 @@ describe('#getGestureType', function() {
         var result = getGestureType({ "dx":0, "dy":10, "vx":0, "vy":0.4 });
         expect(result).to.equal('SWIPE_DOWN');
     });
-    it('should convert return CLICK', function() {
+    it('should convert return TAP', function() {
         var result = getGestureType({ "dx":0, "dy":0, "vx":0, "vy":0 });
-        expect(result).to.equal('CLICK');
+        expect(result).to.equal('TAP');
     });
 });
