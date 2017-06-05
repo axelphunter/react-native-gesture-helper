@@ -7,17 +7,20 @@ React Native Gesture Helper
 
 A small library that adds returns gesture type when gestureState, the velocity threshold and the directional offset threshold is passed from the React Native pan responder.
 
+### Content
+- [Installation](#installation)
+- [Usage example](#usage)
+- [Function params](#function-params)
+- [Response](#response)
+- [Tests](#tests)
+- [Contributing](#contributing)
+- [Questions?](#questions)
+
 ## Installation
 
 `npm install react-native-gesture-helper --save`
 
 ## Usage
-The library takes three parameters:
-
-gestureState: PropTypes.object.required
-velocityThreshold: PropTypes.number
-directionalOffsetThreshold: PropTypes.number
-
 Depending on the velocityThreshold and directionalOffsetThreshold the library will return wether or not the gestures is a swipe or a pan.
 
 ```javascript
@@ -29,7 +32,9 @@ class SomeComponent extends Component {
         this._panResponder = PanResponder.create({
             onPanResponderMove: (evt, gestureState) => {
                 // Add the gesture detection.
-                const swipeDirection = this.getSwipeDirection(gestureState);
+                const velocityThreshold = 0.4;
+                const directionalOffsetThreshold = 80;
+                const swipeDirection = getGestureType(gestureState, velocityThreshold, directionalOffsetThreshold);
 
                 // Do what you will with the results here...
             }
@@ -37,6 +42,15 @@ class SomeComponent extends Component {
     }
 }
 ```
+
+### Function params
+
+| Param | Default | type | description |
+| ---- | ---- | ---- | ---- |
+| gestureState | null | Object | The gestureState value returned from the react Native PanResponder api |
+| velocityThreshold | 0.4 | Number | The Velocity threshold that decides wether the gesture is a swipe or a pan |
+| directionalOffsetThreshold | 80 | Number | The directional offset threshold of the gesture |
+
 
 ## Response
 
@@ -59,3 +73,6 @@ Based on the input the response returned fro the gesture should be one of the fo
 ## Contributing
 
 In lieu of a formal style guide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code.
+
+### Questions?
+Feel free to contact me in [twitter](https://twitter.com/axelphunter) or [create an issue](https://github.com/axelphunter/react-native-gesture-helper/issues/new)

@@ -30,7 +30,7 @@ function _isValidVerticalSwipe(gestureState, velocityThreshold, directionalOffse
 	return _isValidSwipe(vy, velocityThreshold, dx, directionalOffsetThreshold);
 }
 
-module.exports = function(gestureState, velocityThreshold = 0.2, directionalOffsetThreshold = 80) {
+module.exports = function(gestureState, velocityThreshold = 0.4, directionalOffsetThreshold = 80) {
 	const {SWIPE_LEFT, SWIPE_RIGHT, SWIPE_UP, SWIPE_DOWN, PAN_LEFT, PAN_RIGHT, PAN_UP, PAN_DOWN, TAP} = swipeDirections;
     if(_gestureIsTap(gestureState)) return TAP;
 	const {dx, dy} = gestureState;
