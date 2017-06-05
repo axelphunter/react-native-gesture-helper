@@ -12,6 +12,13 @@ A small library that adds returns gesture type when gestureState, the velocity t
 `npm install react-native-gesture-helper --save`
 
 ## Usage
+The library takes three parameters:
+
+gestureState: PropTypes.object.required
+velocityThreshold: PropTypes.number
+directionalOffsetThreshold: PropTypes.number
+
+Depending on the velocityThreshold and directionalOffsetThreshold the library will return wether or not the gestures is a swipe or a pan.
 
 ```javascript
 import React, {Component} from 'react';
@@ -39,6 +46,10 @@ Based on the input the response returned fro the gesture should be one of the fo
 * SWIPE_DOWN
 * SWIPE_LEFT
 * SWIPE_RIGHT
+* PAN_UP
+* PAN_DOWN
+* PAN_LEFT
+* PAN_RIGHT
 * TAP
 
 ## Tests

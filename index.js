@@ -5,11 +5,15 @@ const swipeDirections = {
 	SWIPE_DOWN: 'SWIPE_DOWN',
 	SWIPE_LEFT: 'SWIPE_LEFT',
 	SWIPE_RIGHT: 'SWIPE_RIGHT',
+    PAN_UP: 'PAN_UP',
+    PAN_DOWN: 'PAN_DOWN',
+    PAN_LEFT: 'PAN_LEFT',
+    PAN_RIGHT: 'PAN_RIGHT',
     TAP: 'TAP'
 };
 
 function _isValidSwipe(velocity, velocityThreshold, directionalOffset, directionalOffsetThreshold) {
-	return Math.abs(velocity) > 0 && Math.abs(directionalOffset) < directionalOffsetThreshold;
+	return Math.abs(velocity) > velocityThreshold && Math.abs(directionalOffset) < directionalOffsetThreshold;
 }
 
 function _gestureIsTap(gestureState) {
@@ -27,7 +31,7 @@ function _isValidVerticalSwipe(gestureState, velocityThreshold, directionalOffse
 }
 
 module.exports = function(gestureState, velocityThreshold = 0.2, directionalOffsetThreshold = 80) {
-	const {SWIPE_LEFT, SWIPE_RIGHT, SWIPE_UP, SWIPE_DOWN, TAP} = swipeDirections;
+	const {SWIPE_LEFT, SWIPE_RIGHT, SWIPE_UP, SWIPE_DOWN, PAN_LEFT, PAN_RIGHT, PAN_UP, PAN_DOWN, TAP} = swipeDirections;
     if(_gestureIsTap(gestureState)) return TAP;
 	const {dx, dy} = gestureState;
 	if (_isValidHorizontalSwipe(gestureState, velocityThreshold, directionalOffsetThreshold)) {
@@ -39,5 +43,12 @@ module.exports = function(gestureState, velocityThreshold = 0.2, directionalOffs
         ? SWIPE_DOWN
         : SWIPE_UP;
 	}
-	return null;
+    if(Math.abs(dx) > Math.abs(dy)) {
+        return (dx > 0)
+        ? PAN_RIGHT
+        : PAN_LEFT
+    }
+    return (dy > 0)
+    ? PAN_DOWN
+    : PAN_UP
 }
